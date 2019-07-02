@@ -69,7 +69,7 @@ public class SampleController {
         for (int i = 0; i < result.length; i++) {
             stringBuffer.append(Integer.toString((result[i] & 0xff) + 0x100, 16).substring(1));
         }
-        
+         
         return stringBuffer.toString();
     }
 
@@ -105,7 +105,7 @@ public class SampleController {
 		HashMap<String,Object> meta = new HashMap<String,Object>();
 		HashMap<String,Object> planmeta = new HashMap<String,Object>();
 		
-		// ankus service broker 정보
+		// ankus service broker �젙蹂�
 		
 		meta.put("longDescription", "ankus Service"); 
 		meta.put("documentationUrl", "http://web1.openankus.com/upload/ankus4paasapi.html");
@@ -114,7 +114,7 @@ public class SampleController {
 		meta.put("imageUrl", "http://web1.openankus.com/images/main/logo_ankus.png"); 
 		meta.put("supportUrl", "http://web1.openankus.com");
 		
-		// ankus service broker 의 plan 정보 초기 Free
+		// ankus service broker �쓽 plan �젙蹂� 珥덇린 Free
 
 		Plan plan =  new Plan(
 				"17113748-5e43-4168-8bb9-06a7925f97ba", "ankus-plan", "ankus", 
@@ -178,7 +178,7 @@ public class SampleController {
 			ServiceInstance instance = new ServiceInstance(request);
 			
 			instance.setServiceInstanceId(serviceInstanceId);
-			m_services.add(instance);// 추가...
+			m_services.add(instance);// 異붽�...
 			
 			ObjectMapper mapper = new ObjectMapper();
 			
@@ -198,7 +198,7 @@ public class SampleController {
 		} 
 	} 
 	
-	/* 사용안함...
+	/* �궗�슜�븞�븿...
 	 * 
 	 * 
 	 * update service broker handler
@@ -229,10 +229,10 @@ public class SampleController {
 		String planId = request.getPlanId();
 //		String bindingId = request.getBindingId();
 		String appGuid = request.getAppGuid();
-		//credential 값을 넣는다.
+		//credential 媛믪쓣 �꽔�뒗�떎.
 		HashMap<String,Object> credentials = new HashMap<String, Object>();
 		
-		// key발급 및 REST URL, document URL 생성..
+		// key諛쒓툒 諛� REST URL, document URL �깮�꽦..
 		credentials.put("apikey", "admin");
 		credentials.put("baseurl", "http://vpn.xip.kr/");
 		credentials.put("ankus analyzer", "http://vpn.xip.kr/");
@@ -265,7 +265,7 @@ public class SampleController {
 			
 			System.out.printf("binding=[%d:%s:%s]\n", m_bindings.size(), instance.getServiceInstanceId(), s);
 			
-			m_bindings.add(binding); // 추가..
+			m_bindings.add(binding); // 異붽�..
 			return new ResponseEntity(new ServiceInstanceBindingResponse(binding), binding.getHttpStatus());     
 		} 
 	}
@@ -294,7 +294,7 @@ public class SampleController {
 			}
 		}
 //		ServiceInstance instance = this.serviceInstanceService.getServiceInstance(instanceId);
-		if(binding == null) { // binding 정보없음...
+		if(binding == null) { // binding �젙蹂댁뾾�쓬...
 			return new ResponseEntity("{}", HttpStatus.GONE);
 //			throw new ServiceInstanceDoesNotExistException(instanceId);
 		} else {
@@ -337,8 +337,8 @@ public class SampleController {
 			return new ResponseEntity("{}", HttpStatus.GONE);
 		} else {
 			
-			m_services.remove(instance_idx); // 삭제..
-											 // binding 삭제 ?
+			m_services.remove(instance_idx); // �궘�젣..
+											 // binding �궘�젣 ?
 			logger.debug("ServiceInstance Deleted: " + instance.getServiceInstanceId()) ;         
 			return new ResponseEntity("{}", HttpStatus.OK);     
 		} 
